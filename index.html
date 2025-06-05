@@ -392,6 +392,16 @@
       }, 300);
     }
 
+    document.addEventListener('click', function(event) {
+      const modals = document.querySelectorAll('.modal.show');
+      modals.forEach(modal => {
+        const modalContent = modal.querySelector('.modal-content');
+        if (modal.style.display === 'flex' && !modalContent.contains(event.target)) {
+          closeModal(modal.id);
+        }
+      });
+    });
+
     const typingElement = document.getElementById('typing');
     const words = [
       "Python ❤️",
